@@ -1,4 +1,3 @@
-import icon from './img/night_half_moon_partial_cloud.png'
 import darkIcon from './img/themeIcons/dark_mode_icon.png';
 import lightIcon from './img/themeIcons/light_mode_icon.png';
 import fahrenheitIcon from './img/temprature/fahrenheit_icon.png';
@@ -7,11 +6,13 @@ import './App.css';
 
 import { useState, useEffect } from 'react';
 import { parseWeather } from './utils';
+import Autocomplete from 'react-google-autocomplete';
 
 import Toggle from './Toggle';
 
 
 function App() {
+  const [location, setLocation] = useState('New York');
   const [weather, setWeather] = useState(null);
   const [isCelsius, setIsCelsius] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -21,7 +22,7 @@ function App() {
       const apiKey = process.env.REACT_APP_API_KEY;
       const params = new URLSearchParams({
         'key': apiKey,
-        'q': 'Atlanta'
+        'q': location
       });
 
       try {
@@ -37,7 +38,7 @@ function App() {
       }
     }
     fetchData();
-  }, [])
+  }, [location])
 
   const changeDegree = () => {
     setIsCelsius(!isCelsius);
@@ -64,7 +65,11 @@ function App() {
           <img src={weather.icon} className="h-1/2 w-2/3"></img>
           <div className="w-3/4 md:w-2/3 h-1/3 flex items-center gap-5 md:justify-between">
             <div className="flex flex-col">
-              <p className="italic font-thin">{weather.location}</p>
+              <Autocomplete
+                apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
+                className='italic font-thin border-none outline-none bg-transparent'
+                onPlaceSelected={(place) => setLocation(place.formatted_address)}
+                defaultValue={location}/>
               <hr className="dark:border-black"></hr>
               <h3 className="w-max text-xl text-center font-light">{weather.text}</h3>
               <h2 className="w-max text-3xl text-center font-bold">{isCelsius ? weather.temp_c : weather.temp_f}&deg;</h2>
