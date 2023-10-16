@@ -26,7 +26,7 @@ function App() {
       });
 
       try {
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?${params}`);
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?${params}`);
         if (!response.ok) {
           throw new Error(`${response}`);
         }
