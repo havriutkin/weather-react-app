@@ -14,9 +14,9 @@ const Toggle = ({name, leftIcon, rightIcon, iconScale, onChange}) => {
                 <input type="checkbox" id={name} className="sr-only peer" onChange={handleChange}/>
                 <span className="w-2/5 h-4/5 absolute rounded-full left-1 top-1 peer-checked:left-11 transition-all duration-500 p-1">
                     {isCheked ? (
-                        <img src={rightIcon} className="scale-80"/>
+                        <img src={rightIcon} alt="Right Icon" className="scale-80"/>
                     ) : (
-                        <img src={leftIcon} className="scale-80"/>
+                        <img src={leftIcon} alt="Left Icon" className="scale-80"/>
                     )}
                 </span>
             </label>
