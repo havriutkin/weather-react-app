@@ -61,7 +61,7 @@ function App() {
         <div className="h-2/3 w-3/4 md:h-1/2 md:w-1/2 lg:w-1/3 lg:h-2/3 flex flex-col items-center justify-around p-2 border
          border-slate-300 dark:border-slate-900 rounded-md shadow-lg shadow-cyan-500/80 bg-sky-600 font-sans animate-fade-in
          dark:bg-sky-950 dark:text-white">
-          <img src={icon} className="h-1/2 w-2/3"></img>
+          <img src={weather.icon} className="h-1/2 w-2/3"></img>
           <div className="w-3/4 md:w-2/3 h-1/3 flex items-center gap-5 md:justify-between">
             <div className="flex flex-col">
               <p className="italic font-thin">{weather.location}</p>
