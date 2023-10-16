@@ -1,8 +1,14 @@
 import icon from './img/night_half_moon_partial_cloud.png'
+import darkIcon from './img/themeIcons/dark_mode_icon.png';
+import lightIcon from './img/themeIcons/light_mode_icon.png';
+import fahrenheitIcon from './img/temprature/fahrenheit_icon.png';
+import celsiusIcon from './img/temprature/celsius_icon.png';
 import './App.css';
 
 import { useState, useEffect } from 'react';
 import { parseWeather } from './utils';
+
+import Toggle from './Toggle';
 
 
 function App() {
@@ -49,8 +55,8 @@ function App() {
             <h2 className="w-max text-3xl text-center font-bold">{weather.temp_f}&deg;</h2>
           </div>
           <div className="flex flex-col items-center justify-around">
-            <button className="bg-orange-300 p-2">Toggle</button>
-            <button className="bg-orange-300 p-2 mt-2">Toggle</button>
+            <Toggle name={"themeToggle"} leftIcon={lightIcon} rightIcon={darkIcon}/>
+            <Toggle name={"degreeToggle"} leftIcon={fahrenheitIcon} rightIcon={celsiusIcon}/>
           </div>
         </div>
       </div>
