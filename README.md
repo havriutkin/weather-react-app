@@ -6,7 +6,7 @@ Implemented:
 3. Toggle buttons functional components using Tailwind CSS
 4. Dark Mode
 5. Toggle between Fahrenheit and Celsius
+6. All weather icons correspond to weather text
 
 TODO:
-1. All weather icons
-2. Location change
+1. Location change
