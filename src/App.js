@@ -9,6 +9,7 @@ import { parseWeather } from './utils';
 import Autocomplete from 'react-google-autocomplete';
 
 import Toggle from './Toggle';
+import Loading from './Loading';
 
 
 function App() {
@@ -50,10 +51,8 @@ function App() {
 
 
   if(!weather) return (
-    <div className='App'>
-      <h1>Loading...</h1>
-    </div>
-  )
+    <Loading/>
+  ) 
 
 
   return (
